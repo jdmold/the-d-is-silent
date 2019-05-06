@@ -1,0 +1,8 @@
+
+# Django
+Django[argon2]==2.1.4  # With argon2 for password hashing
+django-extensions==2.1.4
+django-jinja==2.4.1
+djangorestframework==3.9.0
+django-model-utils==3.1.2 # Might not need
+

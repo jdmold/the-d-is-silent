@@ -1,0 +1,16 @@
+# Basic settings.
+version: '3'
+x-django:
+  &django
+  build:
+    context: .
+    dockerfile: ./docker/django/Dockerfile
+    target: dev
+  image: django
+  volumes:
+    - .:/the_d
+  ports:
+    - "32000:8000"
+  command: /bin/sh
+  stdin_open: true
+  tty: true

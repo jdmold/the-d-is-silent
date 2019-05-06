@@ -1,0 +1,5 @@
+# PostgreSQL
+# https://hub.docker.com/_/postgres/
+POSTGRES_DB=the-d
+POSTGRES_USER=the-d-user
+POSTGRES_PASSWORD=HERP-myDerp3

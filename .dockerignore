@@ -1,0 +1,10 @@
+# dotfiles and directories in repository root. Should grab everything like .idea/, .DS_Store, and so on.
+.*
+!.env
+
+# Python Trash
+__pycache__/
+*.py[cod]
+
+# Misc
+docker/

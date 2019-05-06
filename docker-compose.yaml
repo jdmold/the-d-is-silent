@@ -1,0 +1,42 @@
+version: '3'
+#x-django-build:
+#  &django-build
+#  context: .
+#  dockerfile: ./docker/django/Dockerfile
+
+volumes:
+  db-data: {}
+
+service:
+  web:
+    &django
+    build:
+      # <<: *django-build
+      context: .
+      dockerfile: ./docker/django/Dockerfile
+      target: dev
+    image: web
+    depends_on:
+      - db
+    volumes:
+      - .:/the_d
+    ports:
+      - "32000:8000"
+    command: start-web-dev
+    restart: on-failure
+    stdin_open: true
+    tty: true
+  lab:
+    <<: *django
+    ports:
+      - "32001:8000"
+    command: start-lab
+
+  db:
+    image: postgres:11.1-alpine
+    ports:
+      - "32002:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    env_file:
+      - ./.envs/
